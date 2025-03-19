@@ -1,15 +1,15 @@
 import express from "express";
 
-import restaurantsRouter from "./routes/restaurants";
-import cuisinesRouter from "./routes/cuisines";
-import { errorHanlder } from "./middlewares/errorHandler";
+import restaurantsRouter from "./routes/restaurants.js";
+import cuisinesRouter from "./routes/cuisines.js";
+import { errorHanlder } from "./middlewares/errorHandler.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-app.use(express.json());
 
-app.use("/restuarants", restaurantsRouter)
-app.use("/cuisines", restaurantsRouter)
+app.use(express.json());
+app.use("/restuarants", restaurantsRouter);
+app.use("/cuisines", cuisinesRouter);
 
 app.use(errorHanlder);
 app
